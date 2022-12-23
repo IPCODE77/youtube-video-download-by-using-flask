@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block body %}
+<!-- <div class="mb-3">
+  <label for="url" class="form-label">Email address</label>
+  <input type="text" class="form-control" id="url" name="url">
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+</div>
+<div id="spinner"></div> -->
+<div class="container-fluid main_box">
+  <h2>Youtube video downloader</h2>
+  <p class="desc">Download Youtube video 1080p, 4k, 8k on iPhone Android</p>
+  <div class="video_box container">
+    <div class="inner_box">
+      <input type="text" class="form-control" id="url" name="url" placeholder="Paste your link here">
+      <button type="submit" id="submit" class="btn btn-primary">Get Video</button>
+    </div>
+    <div class="table" id="table">
+
+      <table style="width:100%">
+        <tr>
+          <th style="color: white;">Quality</th>
+          <th style="color: white;">Buttons</th>
+        </tr>
+        <tr>
+          <td>
+            <p class="category_text">Highest Quality</p>
+          </td>
+          <td><button id="high" class="btn btn-success">Click Me</button></td>
+        </tr>
+        <tr>
+          <td>
+            <p class="category_text">Medium Quality</p>
+          </td>
+          <td><button id="medium" class="btn btn-success">Click Me</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="category_text">Low Quality</p>
+          </td>
+          <td><button id="low" class="btn btn-success">Click Me</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+  </div>
+</div>
+{% endblock body %}
+
+{% block script1 %}
+<script>
+  // for toogle menu btn
+
+  let btn = document.getElementById('submit')
+  let input_url = document.getElementById('url')
+  let high_btn = document.getElementById('high')
+  let medium = document.getElementById('medium')
+  let low = document.getElementById('low')
+  // let audio = document.getElementById('audio_btn')
+
+  btn.addEventListener('click', () => {
+    if (input_url.value != '') {
+      let regx = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/
+      if (regx.test(input_url.value)) {
+        document.getElementById('table').classList.add('show')
+
+      }
+      else {
+        // alert('invalid url')
+        setTimeout(() => {
+          btn.innerText = 'Get Video'
+          btn.style.backgroundColor = '#0d6efd'
+        }, 2000);
+        btn.innerText = 'Invalid Url...'
+        btn.style.backgroundColor = 'red'
+      }
+
+    }
+  })
+  input_url.addEventListener('keyup', () => {
+    document.getElementById('table').classList.remove('show')
+  })
+
+  // for high quality video 
+  high_btn.addEventListener('click', () => {
+    high_btn.innerText = 'Downloading...'
+    ajaxcall(input_url.value, '/video', 'high')
+  })
+
+  medium.addEventListener('click', () => {
+    medium.innerText = 'Downloading...'
+    ajaxcall(input_url.value, '/medium', 'medium')
+  })
+
+  low.addEventListener('click', () => {
+    low.innerText = 'Downloading...'
+    ajaxcall(input_url.value, '/low', 'low')
+  })
+
+  // audio.addEventListener('click',()=>{
+  //   audio.innerText = 'Downloading...'
+  //   ajaxcall(input_url.value,'/onlyaudio','audio_btn')
+  // })
+
+  function ajaxcall(data, url, button_name) {
+    var send_data = [{ 'url': data }]
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: JSON.stringify(send_data),
+      contentType: "application/json",
+      dataType: 'json',
+      success: function (result) {
+        setTimeout(() => {
+
+          document.getElementById(button_name).innerText = 'Click me'
+        }, 3000);
+        document.getElementById(button_name).innerText = 'Completed'
+
+
+      }
+    });
+
+  }
+</script>
+
+{% endblock script1 %}
+
+{% block description %}
+
+<div class="description container">
+  <h2 class="desc_head">Best Youtube Downloader 2022</h2>
+  <p class="desc_para">YT.Downloades is the fastest website to help you download Youtube video online. With just a few
+    simple steps, you can download any Youtube video to your device in many different formats such as: MP4, Webm, m4a,
+    3gp and especially X2Download allows you to convert Youtube video to mp3 with sound quality best bar. Everything is
+    simple and completely free</p>
+  <h2 class="desc_head">Why should you use the Youtube video download website 𝓨𝓣.𝓓𝓸𝔀𝓷𝓵𝓸𝓪𝓭𝓼'?</h2>
+  <p  class="use_para">𝓨𝓣.𝓓𝓸𝔀𝓷𝓵𝓸𝓪𝓭𝓼' is the best site that allows you to download video from Youtube online today with many
+    advantages as follows:
+
+  <p class="use_para">
+    1. Allows converting and downloading high quality Youtube videos 2160p, 1440p, 1080p, 720p.
+  </p><br>
+  <p class="use_para">
+    2. Convert Youtube to mp3 with high speed 320kbps while keeping the sound quality.
+  </p><br>
+  <p class="use_para">
+
+    3. Support converting Youtube to mp4 online without installing any other software.
+  </p><br>
+  <p class="use_para">
+
+    4. Technology convert youtube to mp3 high speed, allowing you to download mp3 youtube instantly without waiting.
+  </p><br>
+
+  <p class="use_para">
+
+    5. The tool works on any browser that supports all devices allowing to download mp4 from youtube online.
+  </p><br>
+  <p class="use_para">
+
+    6. The tool is completely free and has no annoying ads for users.
+  </p><br>
+
+  <p class="use_para">
+
+    In addition, X2Download is constantly being upgraded and updated with many other features, helping users to download
+    videos from Youtube.com as conveniently as possible.
+
+  </p><br>
+  <p class="use_para">
+
+    Finally, if you find our "Youtube Downloader" useful, please share this website with your friends and family to use
+    it. That is a huge spiritual support for our team.
+  </p><br>
+
+  <p class="use_para">
+
+    Thank you for using the service of 𝓨𝓣.𝓓𝓸𝔀𝓷𝓵𝓸𝓪𝓭𝓼'</p>
+  </p><br>
+</div>
+
+{% endblock description %}

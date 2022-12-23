@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+nav {
+  background-color: #001848;
+}
+.navbar-brand {
+  color: #26de81;
+}
+.nav-link,
+#menu_btn {
+  font-size: 20px;
+  color: whitesmoke;
+}
+.nav-link:hover {
+  color: cyan;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    padding-left: 2rem;
+    margin: 0px 15px;
+  }
+  .inner_box {
+    display: flex;
+    justify-content: center;
+  }
+  #url {
+    width: 66%;
+  }
+  #submit ,#audio_btn{
+    margin: 0px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner_box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #url {
+    width: 100%;
+  }
+  #submit,#audio_btn{
+    margin: 10px 10px;
+    /* width: 7rem; */
+    /* transform: translateX(100px); */
+  }
+}
+/* main_box */
+.main_box {
+  background-color: #001848;
+  min-height: 150px;
+}
+h2 {
+  text-transform: capitalize;
+  text-align: center;
+  color: #26de81;
+}
+.desc {
+  color: whitesmoke;
+  font-size: 16px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.cat1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category_text {
+  color: white;
+}
+table {
+  /* border:1px solid white; */
+  margin-top: 2rem;
+}
+
+th,
+td {
+  text-align: center;
+  margin: 10px 0px;
+}
+tr {
+  border: none;
+}
+
+#high,
+#medium,
+#low {
+  margin: 10px 0px;
+}
+
+.table{
+    height: 0px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.show{
+    height: 200px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.desc_head{
+    color: black;
+    text-align: center;
+    text-transform: capitalize;
+}
+.desc_para{
+    text-transform: capitalize;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer{
+    height: 50px;
+    background: black;
+    color: white;
+    text-align: center;
+}
+.code{
+    color: #17f9ff;
+    text-decoration: none;
+}
+.use_para{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: 500;
+}
